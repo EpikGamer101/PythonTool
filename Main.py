@@ -1,245 +1,172 @@
 import time
-import os, signal
-import datetime
+import random
+import os
+import signal
+from datetime import datetime
+logfile = open('log.txt', 'r+')
+definitions = open('definitionsHtml.txt', 'r')
+rights = open('rights.txt', 'r')
+loglines = logfile.readlines()
+global deflines
+deflines = definitions.readlines()
+
+
+rlines = rights.readlines()
+rline1 = rlines[0]
+rline2 = rlines[1]
+rline3 = rlines[2]
+noRun = random.randrange(1, 100)
+if noRun == 50:
+    print()
+    print("The program just don't like you right now. It no want to run :P")
+    print()
+    os.kill(os.getpid(), signal.SIGTERM)
+
 
 def Start():
-
-    while True:
-        RecordLog = input('Would you like me to record the date and time of this session? ')
-        print("")
-        if RecordLog == 'yes':
-            file = open('C:\csc1AB\PROJECTS_\Project_1\log.txt', 'r+')
-            file.truncate()
-            file.write('Session started at: ' + datetime.datetime.now().ctime() + '''
-
-''')
-            print(file.readlines())
-            print("")
-            break
-        elif RecordLog == 'no':
-            break
-        else:
-            continue
-
-    A = '''
-
-    <!DOCTYPE html> is the declaration tag for a standard HTML
-    document. This is used to tell the browser what kind of HTML document
-    it is.
-
-    '''
-    a = '''
-
-    <p> This tag defines a PARAGRAPH. These are highly customisable
-    in CSS, and can be used in any HTML version. There are variations
-    of this tag, such as:
-
-    <p1>
-    <p2>
-    <p3>
-    <p4>
-    <p5>
-    <p6>
-
-    and so on..
-
-    '''
-    B = '''
-
-    <h> This tag defines a HEADER. These, like PARAGRAPHS (see <p>),
-    are highly custonizable in CSS, and, like PARAGRAPHS, can be used
-    in any HTML version. There are variations of this tag, such as:
-
-    <h1>
-    <h2>
-    <h3>
-    <h4>
-    <h5>
-    <h6>
-
-    and so on..
-
-    '''
-    b = '''
-
-    <a> This tag defines a HYPERLINK. This can be used to turn ANY block
-    or peice of text into a clickable link. This has a variety of uses, such as:
-
-    Redirection
-    Buttons
-    Drop down menus
-    Navigations bars
-
-    and many more.
-
-    A hyperlink's syntax is as shows:
-
-    <a href = "www.LINK.com"  target = "(_blank, _parent, _self, and _top are
-    your options)" type = "(specify the type of linked document.)"></a>
-
-    The closing tag is nessesary for this to work with your given parameters.
-
-    '''
-    C = '''
-
-    <div> This tag defines a DIVIDED BLOCK where you can store content,
-    such as pictures, videos, buttons, text, and just about anything you can
-    think of. This is mainly used for containing things such as:
-
-    Navigation bars
-    Buttons
-    The entire page (Formally known as "Wrapper")
-    ETC.
-
-    This DIV's syntax is as shows:
-
-    <div class = "(calls a certain CSS class)"></div>
-
-    The closing tag is nessesary for this to work with your given parameters.
-
-    '''
-    c = '''
-
-    <link> This tag will LINK (a) CSS file(s) to your HTML document. You can
-    LINK multiple CSS files to a single HTML document. You can LINK files
-    from Google, as well as your own .css files.
-
-    The LINK's syntax is as shows:
-
-    <link href = "FILENAME.css (OR) www.LINK.com" rel = "Stylesheet" type =
-    "text/css">
-
-    '''
-    D = '''
-
-    <br> This tag creates a LINE BREAK. Just like in any text-editor program,
-    you can create a LINE BREAK using ENTER, or the RETURN KEY. This
-    tag is a very basic one, and it takes like, 5 minutes to remember.
-
-    The LINE BREAK's syntax is as shows:
-
-    <br>
-
-    Simple right?!
-
-    '''
-            
+    logfile.write('Session started at: ' + datetime.now().ctime() + '\n\n')
+    print(logfile.readlines())
+    print()
     print("This tool was made to help programmers, like myself,")
     print("with HTML tags. It takes your input, say you typed")
     print("<div>, it would give you an accurate description of")
     print("that tag and a list of its uses.")
-    print("")
+    print()
     print("Guest users please login as 'Guest'")
-    print("")
-    print("This tool was made by Chase Barnes")
-    print("@Copyright 2017")
-    print("")
+    print()
     print("(Remember, type BASE tags -<p>- ONLY)")
-    print("")
+    print()
 
     while True:
         Username = input("Username: ")
         if Username == 'Guest':
             Username = 'Guest'
-            file.write('''User: Guest
-
+            logfile.write('User: Guest' + '\n\n')
+            print()
+            print('CHECKING..')
+            time.sleep(2)
+            print('''
+  Welcome, Guest!
 ''')
+            Block()
             break
         elif Username == '/admin061503':
             Username = "Admin Chase"
-            file.write('''User: Admin Chase
-
-''')
+            logfile.write('User: Admin Chase' + '\n\n')
             Pass = input("Password: ")
             if Pass == '*************':
                 Username = 'Admin Chase'
-                file.write('''logged in!
-
+                logfile.write('logged in!' + '\n\n')
+                print()
+                print('CHECKING..')
+                time.sleep(2)
+                print('''
+  Welcome, Admin Chase!
 ''')
+                Block()
                 break
             else:
-                print("")
+                print()
                 print("The Input is Incorrect")
-                print("")
-                file.write('''Wrong Password has been inputed.
-
-''')
+                print()
+                logfile.write('Wrong Password has been inputed.' + '\n\n')
         else:
-            print("")
-            print("UNKNOWN USERNAME")
-            print("")
-            continue
-            
-
-    print("")
-    print("Welcome, " + Username + "!")
-    print("")
-
-    def main():
-        Input = input("TAG: ")
-        if Input == '/exit':
-            answerexit = input("Are you sure? ")
-            if  answerexit == 'yes':
-                file.write('session ended at: ' + datetime.datetime.now().ctime() + '''
-
+            print()
+            print('CHECKING..')
+            time.sleep(2)
+            print('''
+Incorrect Username
 ''')
-                file.close()
-                print("")
-                print("SHUTTING DOWN..")
-                print("")
-                time.sleep(2)
-                os.kill(os.getpid(), signal.SIGTERM)
-            elif answerexit == 'no':
-                print("")
-                print("SHUTDOWN ABORTED..")
-                print("")
-                main()
-        elif Input == '/reset':
-                print("")
-                print("RESTARTING..")
-                print("")
-                time.sleep(1.5)
-                Start()
-        elif Input == '':
-            print("")
-            print("Please enter a tag or command.")
-            print("")
-            main()
-        elif Input == '<!DOCTYPE html>':
-            print(A)
-            time.sleep(1)
-            main()
-        elif Input == '<p>':
-            print(a)
-            time.sleep(1)
-            main()
-        elif Input == '<h>':
-            print(B)
-            time.sleep(1)
-            main()
-        elif Input == '<a>':
-            print(b)
-            time.sleep(1)
-            main()
-        elif Input == '<div>':
-            print(C)
-            time.sleep(1)
-            main()
-        elif Input == '<link>':
-            print(c)
-            time.sleep(1)
-            main()
-        elif Input == '<br>':
-            print(D)
-            time.sleep(1)
-            main()
-        else:
-            print("")
-            print('''The tag or command you entered is Not Recognized of is not yet
-    supported by this tool.''')
-            print("")
-            main()
 
-    main()
+
+def Block():
+    Input = input("TAG: ")
+    if Input == 'exit':
+        answerexit = input("Are you sure? ")
+        if answerexit == 'yes':
+            logfile.write('session ended at: ' + datetime.now().ctime() + '\n')
+            logfile.close()
+            print()
+            print("SHUTTING DOWN..")
+            print()
+            time.sleep(2)
+            os.kill(os.getpid(), signal.SIGTERM)
+        elif answerexit == 'no':
+            print()
+            print("SHUTDOWN ABORTED..")
+            print()
+            Block()
+    elif Input == 'restart':
+            print()
+            print("RESTARTING..")
+            print()
+            time.sleep(1.5)
+            Start()
+    elif Input == '':
+        print()
+        print("Please enter a tag or command.")
+        print()
+        Block()
+    elif Input == 'credits':
+        print()
+        print(rline1)
+        print(rline2)
+        print(rline3)
+        print()
+        Block()
+    elif Input == '<!DOCTYPE html>':
+        print()
+        print(deflines[0])
+        time.sleep(1)
+        Block()
+    elif Input == '<p>':
+        print()
+        print(deflines[1], deflines[2], deflines[3], deflines[4], deflines[5])
+        print(deflines[6], deflines[7], deflines[8])
+        print()
+        time.sleep(1)
+        Block()
+    elif Input == '<h>':
+        print()
+        print(deflines[9], deflines[10], deflines[11], deflines[12])
+        print(deflines[13], deflines[14], deflines[15], deflines[16])
+        print()
+        time.sleep(1)
+        Block()
+    elif Input == '<a>':
+        print()
+        print(deflines[17], deflines[18], deflines[19], deflines[20])
+        print(deflines[21], deflines[22], deflines[23], deflines[24])
+        print(deflines[25])
+        print()
+        time.sleep(1)
+        Block()
+    elif Input == '<div>':
+        print(deflines[26], deflines[27], deflines[28], deflines[29])
+        print(deflines[30], deflines[31], deflines[32], deflines[33])
+        print(deflines[34])
+        time.sleep(1)
+        Block()
+    elif Input == '<link>':
+        print(deflines[35], deflines[36], deflines[37])
+        time.sleep(1)
+        Block()
+    elif Input == '<br>':
+        print(deflines[38], deflines[39], deflines[40], deflines[41])
+        time.sleep(1)
+        Block()
+    elif Input == '<button>':
+        print(deflines[42], deflines[43], deflines[44])
+        time.sleep(1)
+        Block()
+    elif Input == '<iframe>':
+        print(deflines[45], deflines[46])
+        time.sleep(1)
+        Block()
+    else:
+        print()
+        print('''The tag or command you entered is Not Recognized or is not yet
+supported by this tool.''')
+        print()
+        Block()
 Start()
-    
