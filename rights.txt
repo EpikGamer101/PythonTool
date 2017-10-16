@@ -1,0 +1,3 @@
+This tool was made by Chase Barnes
+@2017
+This is OPEN SOURCE software, free to edit and use by anybody.
