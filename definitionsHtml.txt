@@ -1,0 +1,54 @@
+<!DOCTYPE html> is the declaration tag for a standard HTML document. This is used to tell the browser what kind of HTML document it is.
+<p> This tag defines a PARAGRAPH. These are highly customisable in CSS, and can be used in any HTML version. There are variations of this tag, such as:
+<p1>
+<p2>
+<p3>
+<p4>
+<p5>
+<p6>
+and so on..
+<h> This tag defines a HEADER. These, like PARAGRAPHS (see <p>), are highly custonizable in CSS, and, like PARAGRAPHS, can be used in any HTML version. There are variations of this tag, such as:
+<h1>
+<h2>
+<h3>
+<h4>
+<h5>
+<h6>
+and so on..
+<a> This tag defines a HYPERLINK. This can be used to turn ANY block or peice of text into a clickable link. This has a variety of uses, such as:
+Redirection
+Buttons
+Drop down menus
+Navigations bars
+and many more.
+A hyperlink's syntax is as shows:
+<a href = "#"  target = "(_blank, _parent, _self, and _top are your options)" type = "(specify the type of linked document.)"></a>
+The closing tag is nessesary for this to work with your given parameters.
+<div> This tag defines a DIVIDED BLOCK where you can store content, such as pictures, videos, buttons, text, and just about anything you can think of. This is mainly used for containing things such as:
+Navigation bars
+Buttons
+The entire page (Formally known as "Wrapper")
+ETC.
+This DIV's syntax is as shows:
+<div class = "#"></div>
+The closing tag is nessesary for this to work with your given parameters.
+<link> This tag will LINK (a) CSS file(s) to your HTML document. You can LINK multiple CSS files to a single HTML document. You can LINK files from Google, as well as your own .css files.
+The LINK's syntax is as shows:
+<link href = "#.css" (OR) "#.com" rel = "Stylesheet" type = "text/css">
+<br> This tag creates a LINE BREAK. Just like in any text-editor program, you can create a LINE BREAK using ENTER, or the RETURN KEY. This tag is a very basic one, and it takes like, 5 minutes to remember.
+The LINE BREAK's syntax is as shows:
+<br>
+Simple right?!
+<button> This tag defines a BUTTON. These BUTTONS, by default, are just derpy looking grey buttons, until they are customised using CSS.
+The BUTTON's syntax is as shows:
+<button class = "#"></button>
+<iframe> This tag defines an IFRAME. This is used to design webpages that include links to other sites and/or files. Using an IFRAME, you can display other webpages, such as google.com, w3schools.com, and youtube.com are a few. These are moderately customizable in CSS, and can be used virtually anywhere in a webpage, as long as there is enough space.
+The IFRAME's syntax is as follows:
+<iframe src = "#"></iframe>
+
+
+
+
+
+
+
